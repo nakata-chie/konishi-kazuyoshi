@@ -1,0 +1,77 @@
+@use "_mixin.scss" as responsive;
+@use "_color.scss" as color;
+@use "_font.scss" as font;
+
+//ページが開いたら記事が表示
+.page-news {
+    opacity: 0;
+    animation: firstFadeUp 1s ease 0.8s 1 forwards;
+}
+
+@keyframes firstFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+.news-lists {
+    margin-bottom: 40px;
+}
+
+
+/* ページネーション */
+.wp-pagenavi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.wp-pagenavi a,
+.wp-pagenavi span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: color.$main-color;
+    border-radius: 8px;
+    font-family: font.$font-zmg;
+    font-size: font.$fz16;
+    font-weight: 500;
+    color: color.$base-color;
+}
+
+.wp-pagenavi span {
+    background-color: color.$accent-color;
+}
+
+.wp-pagenavi a:hover {
+    background-color: color.$accent-color;
+}
+
+.wp-pagenavi .current {
+    background-color: color.$accent-color;
+    color: color.$base-color;
+}
+
+.wp-pagenavi .pages {
+    display: none;
+}
+
+.wp-pagenavi a,
+.wp-pagenavi span,
+.wp-pagenavi a:hover,
+.wp-pagenavi span.current {
+    border: none !important;
+}

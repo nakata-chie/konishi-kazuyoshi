@@ -1,0 +1,710 @@
+@use "_mixin.scss" as responsive;
+@use "_color.scss" as color;
+@use "_font.scss" as font;
+
+/* ------------------------------
+各section余白
+------------------------------ */
+#top-profile,
+#top-news,
+#top-works,
+#sns {
+    padding-block: 80px;
+}
+
+@include responsive.pc {
+
+    #top-profile,
+    #top-news,
+    #top-works,
+    #sns {
+        padding-block: 60px;
+    }
+}
+
+#footer .wrapper {
+    padding-block: 104px;
+}
+
+/* ------------------------------
+mainVisual
+------------------------------ */
+.mainVisual {
+    position: relative;
+    max-width: 1920px;
+    margin-inline: auto;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    .responsive-img {
+        display: none;
+    }
+}
+
+@include responsive.pc {
+    .mainVisual {
+        margin-top: 30px;
+
+        .main-img {
+            display: none;
+        }
+
+        .responsive-img {
+            display: block;
+        }
+    }
+}
+
+.mainVisual-name {
+    position: absolute;
+    top: 40%;
+    left: 6%;
+    transform: translateY(-50%);
+    color: color.$base-color;
+}
+
+@include responsive.tab {
+    .mainVisual-name {
+        top: 38%;
+        left: 3%;
+    }
+}
+
+.mainVisual-name {
+    animation: slideIn 2s 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    opacity: 0;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.name-en,
+.name-works {
+    /* font-family: font.$font-zmg; */
+    font-family: font.$font-mpr1;
+    font-weight: 500;
+    letter-spacing: font.$base-ls;
+    color: color.$base-color;
+}
+
+.name-en {
+    font-size: clamp(0.875rem, 0.394rem + 2.41vw, 2.5rem);
+}
+
+.name-works {
+    font-size: clamp(0.625rem, 0.218rem + 2.04vw, 2rem);
+}
+
+.name-ja {
+    font-family: font.$font-mpr1;
+    font-size: clamp(1.875rem, 0.208rem + 8.33vw, 7.5rem);
+    font-weight: 500;
+    line-height: 1.3em;
+    color: color.$base-color;
+}
+
+/* ------------------------------
+top-message
+------------------------------ */
+.top-message {
+    text-align: center;
+    padding-block: 160px;
+
+    .message-text {
+        text-align: left;
+        font-size: font.$fz22;
+        font-weight: 500;
+        line-height: font.$base-lh;
+    }
+}
+
+@include responsive.pc {
+    .top-message {
+        padding-block: 52px;
+
+        .message-text {
+            font-size: font.$fz16;
+        }
+    }
+}
+
+.message-title {
+    position: relative;
+    font-family: font.$font-zmg;
+    font-size: clamp(1.875rem, 0.579rem + 6.48vw, 6.25rem);
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: font.$base-ls;
+    margin-bottom: 40px;
+    overflow: hidden;
+
+    &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: -120%;
+        width: 100%;
+        height: 100%;
+        transform: skewX(-30deg);
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 100%);
+        pointer-events: none;
+        opacity: 0;
+        animation: shine-message 2.8s linear 0s infinite;
+    }
+}
+
+@keyframes shine-message {
+    100% {
+        left: 100%;
+        opacity: 1;
+    }
+}
+
+/* ------------------------------
+PROFILE
+------------------------------ */
+#top-profile {
+    background-color: color.$bg-color-tp;
+}
+
+.top-profile-contents {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+@include responsive.pc {
+    .top-profile-contents {
+        flex-direction: column;
+        gap: 32px;
+    }
+}
+
+.top-profile-left {
+    width: 20%;
+}
+
+@include responsive.pc {
+    .top-profile-left {
+        width: 200px;
+        text-align: center;
+
+        img {
+            width: 200px;
+        }
+
+        .portfolio-name {
+            text-align: left;
+            font-size: font.$fz14;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+    }
+}
+
+.top-profile-img,
+.portfolio-name {
+    opacity: 0;
+}
+
+.portfolio-name {
+    margin-top: 16px;
+}
+
+.top-profile-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    opacity: 0;
+}
+
+.top-profile-texts {
+    width: 80%;
+}
+
+@include responsive.pc {
+
+    .top-profile-texts {
+        width: 100%;
+    }
+}
+
+.portfolio-text {
+    line-height: font.$base-lh;
+    opacity: 0;
+}
+
+@include responsive.pc {
+
+    .portfolio-text {
+        line-height: 2;
+    }
+}
+
+.fadeIn-50 {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+.balloon-animation {
+    animation: balloon 1s ease 0s 1 forwards;
+}
+
+@keyframes balloon {
+    0% {
+        transform: scale(0.4);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ------------------------------
+news
+------------------------------ */
+#top-news {
+    background-color: color.$bg-color;
+}
+
+.news-lists {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+
+    li {
+        background-color: color.$base-color;
+        border-radius: 8px;
+        box-shadow: 0 4px 4px 0 rgba($color: #D9D9D9, $alpha: 0.2);
+        overflow: hidden;
+
+        &:hover {
+            box-shadow: 0 0 20px 0 rgba($color: color.$main-color , $alpha: 1);
+            transform: scale(1.04);
+        }
+
+        &:hover img {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+    }
+}
+
+@include responsive.pc {
+    .news-lists {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
+
+.news-img {
+    overflow: hidden;
+}
+
+.news-img img {
+    border-radius: 8px 8px 0 0;
+    transition: all 1s ease;
+}
+
+.news-texts {
+    padding: 24px;
+
+    .category {
+        font-size: font.$fz14;
+        font-weight: 500;
+        background-color: #D9D9D9;
+        border-radius: 15px;
+        padding: 4px 16px;
+    }
+
+    .news-text {
+        color: color.$sub-color;
+        margin-block: 8px 4px;
+    }
+
+    .news-date {
+        font-size: font.$fz14;
+        font-weight: 400;
+    }
+}
+
+@include responsive.pc {
+    .news-texts {
+        padding: 16px;
+
+        .category {
+            font-size: font.$fz10;
+            font-weight: 500;
+            padding: 4px 8px;
+        }
+
+        .news-text {
+            font-size: font.$fz14;
+            line-height: font.$lh14;
+        }
+    }
+}
+
+@include responsive.small-screen {
+    .news-texts {
+        padding: 8px;
+    }
+}
+
+/* 要素が順番に現れる */
+.box {
+    opacity: 0;
+}
+
+.fadeUp {
+    animation: fadeUpAnime 1.2s forwards;
+    opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.delay-time02 {
+    animation-delay: 0.2s;
+}
+
+.delay-time03 {
+    animation-delay: 0.4s;
+}
+
+.delay-time04 {
+    animation-delay: 0.6s;
+}
+
+.delay-time05 {
+    animation-delay: 0.8s;
+}
+
+.delay-time06 {
+    animation-delay: 1s;
+}
+
+.delay-time07 {
+    animation-delay: 1.2s;
+}
+
+/* ------------------------------
+top-works
+------------------------------ */
+.container {
+    background-color: color.$bg-color-tp;
+}
+
+.top-works-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+@include responsive.pc {
+    .top-works-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.top-works-list li {
+    position: relative;
+    background-color: color.$base-color;
+    border-radius: 8px 8px 48px 8px;
+    padding: 40px;
+    box-shadow: 0 2px 4px#e1e1e1;
+}
+
+.work-title-area {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.work-icon,
+.work-subtitle,
+.work-title {
+    letter-spacing: font.$base-ls;
+}
+
+.work-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(140deg, #37BDF2 0%, #3790F2 60%, #375CF2 100%);
+    border-radius: 100px;
+    font-family: font.$font-zmg;
+    font-weight: bold;
+    line-height: 100px;
+    color: color.$base-color;
+    text-align: center;
+    margin-right: 16px;
+}
+
+@include responsive.sp {
+    .work-title-area {
+        margin-bottom: 16px;
+    }
+
+    .work-icon {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+    }
+}
+
+.work-subtitle {
+    display: inline-block;
+    font-family: font.$font-zmg;
+    font-size: font.$fz16;
+    font-weight: bold;
+}
+
+.work-title {
+    font-family: font.$font-zmg;
+    font-size: font.$fz24;
+    font-weight: bold;
+}
+
+.work-text {
+    margin-bottom: 8px;
+}
+
+/* 線が伸びるボタン */
+.work-link {
+    position: absolute;
+    right: 32px;
+    bottom: 24px;
+}
+
+.work-link a {
+    color: color.$sub-color;
+    transition: color.$animation;
+}
+
+@include responsive.sp {
+    .top-works-list li {
+        padding: 16px;
+    }
+
+    .work-text {
+        padding-bottom: 8px;
+    }
+
+    .work-link {
+        right: 40px;
+        bottom: 12px;
+    }
+}
+
+.work-link a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: color.$main-color;
+    transition: color.$animation;
+    opacity: 0;
+    transform: scale(0, 1);
+    transform-origin: left top;
+}
+
+.work-link a:hover {
+    color: color.$main-color;
+}
+
+.work-link a:hover::after {
+    background-color: color.$main-color;
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+/* ------------------------------
+sns
+------------------------------ */
+#sns {
+    background-color: color.$bg-color;
+    text-align: center;
+
+    .sns-text {
+        font-weight: 500;
+    }
+}
+
+.x-link {
+    max-width: 480px;
+    margin-inline: auto;
+
+    img {
+        border-radius: 8px;
+        box-shadow: 0 4px 4px 0 rgba($color: #D9D9D9, $alpha: 0.2);
+        margin-top: 24px;
+
+        &:hover {
+            transform: scale(1.04);
+            transition: color.$animation;
+        }
+    }
+}
+
+
+.sns-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-top: 16px;
+
+    li:hover {
+        transform: scale(1.2);
+        transition: color.$animation;
+    }
+
+    a {
+        font-size: 48px;
+    }
+
+    .ig-icon {
+        line-height: 1;
+
+        img {
+            width: 42px;
+            height: auto;
+            vertical-align: bottom;
+        }
+    }
+
+    .x-icon {
+        color: color.$base-font-color;
+    }
+
+    .fb-icon {
+        color: #0866FF;
+    }
+}
+
+/* ------------------------------
+contact
+------------------------------ */
+#footer {
+    text-align: center;
+
+    .message-title {
+        font-size: clamp(2.5rem, 1.389rem + 5.56vw, 6.25rem);
+    }
+
+    .base-btn {
+        margin-top: 40px;
+    }
+}
+
+.to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 140px;
+    z-index: 5;
+}
+
+.footer-text {
+    margin-top: 32px;
+    font-weight: 500;
+
+    .footer-text1 {
+        font-size: font.$fz24;
+        margin-bottom: 8px;
+    }
+}
+
+@include responsive.sp {
+    .footer-text {
+        .footer-text1 {
+            font-size: font.$fz18;
+            letter-spacing: 0;
+        }
+
+        .footer-text2 {
+            font-size: font.$fz14;
+            letter-spacing: 0;
+        }
+    }
+}
+
+.footer-bottom {
+    background-color: color.$main-color;
+    color: color.$base-color;
+    padding-block: 16px 16px;
+
+    .copy-light {
+        letter-spacing: font.$base-ls;
+    }
+}
+
+.footer-sns {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+
+    a {
+        display: block;
+        font-size: font.$fz22;
+        color: color.$base-color;
+    }
+}
+
+.footer-fix-contact {
+    display: none;
+}
+
+@include responsive.pc {
+    #footer {
+        .footer-bottom {
+            padding-block: 40px 120px
+        }
+
+        .footer-fix-contact {
+            display: block;
+            width: 100%;
+            background-color: color.$base-color;
+            position: fixed;
+            z-index: 9999;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            padding-block: 10px;
+
+            .base-btn {
+                margin-top: 0;
+                padding: 12px 88px;
+            }
+        }
+    }
+
+    .to-top {
+        bottom: 280px;
+    }
+}

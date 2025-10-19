@@ -1,0 +1,57 @@
+@use "_mixin.scss" as responsive;
+@use "_color.scss" as color;
+@use "_font.scss" as font;
+
+/* ------------------------------
+contact-form
+------------------------------ */
+#contact-form {
+    max-width: 600px;
+    margin-inline: auto;
+
+    dt p {
+        font-family: "Zen Maru Gothic", sans-serif;
+        font-size: font.$fz18;
+        font-weight: bold;
+        letter-spacing: 0.06em;
+        color: color.$main-color;
+    }
+
+    dd p {
+        font-size: font.$fz16;
+        padding: 4px 8px;
+    }
+
+    dd {
+        border: 1px solid #B2B2B2;
+        border-radius: 8px;
+        margin-bottom: 16px;
+    }
+
+    .base-btn {
+        padding: 0;
+    }
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 4px 8px;
+}
+
+textarea {
+    height: 200px;
+}
+
+
+.btn-submit {
+    text-align: center;
+    margin-top: 24px;
+
+    input {
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        color: #fff;
+        padding: 8px 72px;
+    }
+}

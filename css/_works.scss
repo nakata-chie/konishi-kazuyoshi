@@ -1,0 +1,129 @@
+@use "_mixin.scss" as responsive;
+@use "_color.scss" as color;
+@use "_font.scss" as font;
+
+/* ------------------------------
+worksのボタンエリア
+------------------------------ */
+.work-btn {
+    font-family: font.$font-zmg;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+
+    li {
+        border-radius: 8px;
+    }
+}
+
+@include responsive.pc {
+    .work-btn {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@include responsive.sp {
+    .work-btn {
+        gap: 16px;
+    }
+}
+
+.work-btn-flex {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: color.$base-color;
+    border: 1px solid color.$main-color;
+    border-radius: 8px;
+    padding: 16px;
+    transition: color.$animation;
+
+    &:hover {
+        background: linear-gradient(135deg, #37BDF2 0%, #3790F2 60%, #375CF2 100%);
+    }
+
+    &:hover .work-btn-icon {
+        background: color.$base-color;
+        color: color.$main-color;
+    }
+
+    &:hover .work-btn-title {
+        color: color.$base-color;
+    }
+}
+
+@include responsive.sp {
+    .work-btn-flex {
+        padding: 8px;
+    }
+}
+
+.work-btn-title-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+@include responsive.sp {
+    .work-btn-title-flex {
+        gap: 16px;
+    }
+}
+
+.work-btn-icon,
+.work-btn-title {
+    letter-spacing: font.$base-ls;
+}
+
+.work-btn-icon {
+    font-family: font.$font-zmg;
+    background: linear-gradient(135deg, #37BDF2 0%, #3790F2 60%, #375CF2 100%);
+    border-radius: 8px;
+    color: color.$base-color;
+    padding: 16px;
+}
+
+@include responsive.sp {
+    .work-btn-icon {
+        font-size: font.$fz14;
+        padding: 8px;
+    }
+}
+
+.work-btn-title {
+    font-family: font.$font-zmg;
+    font-size: font.$fz24;
+    font-weight: bold;
+}
+
+@include responsive.sp {
+    .work-btn-icon {
+        font-size: font.$fz14;
+        padding: 8px;
+    }
+
+    .work-btn-title {
+        font-size: font.$fz18;
+    }
+}
+
+.work-btn-arrow {
+    width: 30px;
+    height: auto;
+}
+
+/* ------------------------------
+worksの各項目エリア
+------------------------------ */
+.page-work-content {
+    padding-top: 88px;
+    margin-top: -40px;
+}
+
+/* .page-work-content:last-of-type {
+    margin-bottom: 44px;
+} */

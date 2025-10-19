@@ -1,0 +1,37 @@
+@use "_mixin.scss" as responsive;
+@use "_color.scss" as color;
+@use "_font.scss" as font;
+
+#page-news-single {
+    .news-texts {
+        padding: 0;
+    }
+
+    .category {
+        display: inline-block;
+        border-radius: 9999;
+        font-family: font.$font-zmg;
+        font-size: font.$fz14;
+        font-weight: 500;
+        padding: 4px 24px;
+        margin-bottom: 4px;
+    }
+
+    .news-date {
+        font-size: font.$fz16;
+        margin-bottom: 8px;
+    }
+}
+
+.single-news-title {
+    font-family: font.$font-nsj;
+    font-size: font.$fz24;
+    font-weight: bold;
+    line-height: font.$lh14;
+    margin-bottom: 48px;
+}
+
+.single-news-text {
+    font-family: font.$font-nsj;
+    font-size: font.$fz16;
+}

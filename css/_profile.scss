@@ -1,0 +1,47 @@
+@use "_mixin.scss" as responsive;
+@use "_color.scss" as color;
+@use "_font.scss" as font;
+
+
+.fadeIn-img-animation {
+    opacity: 0;
+    animation: fadeIn-img 1s ease 0.8s 1 forwards;
+}
+
+@keyframes fadeIn-img {
+    0% {
+        transform: translateY(50px);
+
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-profile-img {
+    max-width: 280px;
+    margin-inline: auto;
+    margin-bottom: 40px;
+
+    img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px #e1e1e1;
+    }
+}
+
+@include responsive.pc {
+    .page-profile-img {
+        max-width: 200px;
+    }
+}
+
+.page-profile-box {
+    margin-bottom: 44px;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}

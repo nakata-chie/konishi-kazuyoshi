@@ -1,0 +1,222 @@
+@use "_mixin.scss" as responsive;
+@use "_color.scss" as color;
+@use "_font.scss" as font;
+
+html {
+    font-size: 100%;
+}
+
+body {
+    background-color: color.$base-color;
+}
+
+h2 {
+    color: color.$base-font-color;
+    line-height: 1;
+}
+
+h3 {
+    line-height: 1;
+}
+
+p {
+    font-family: font.$font-nsj;
+    font-size: font.$fz16;
+    line-height: font.$base-lh;
+    letter-spacing: font.$base-ls;
+    color: color.$base-font-color;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    font-family: font.$font-zmg;
+    font-weight: bold;
+    text-decoration: none;
+    color: color.$base-font-color;
+}
+
+img {
+    max-width: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 3%;
+}
+
+.sec-title {
+    font-family: font.$font-zmg;
+    font-size: font.$fz64;
+    letter-spacing: font.$base-ls;
+    text-align: center;
+    margin-bottom: 64px;
+    opacity: 0;
+}
+
+@include responsive.pc {
+    .sec-title {
+        font-size: font.$fz40;
+        margin-bottom: 48px;
+    }
+}
+
+.gradient {
+    background: linear-gradient(90deg, #37BDF2 0%, #3790F2 60%, #375CF2 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+//sectionタイトル・文章アニメーション
+.fadeIn,
+.fade-news {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+/* ------------------------------
+下層ページ共通
+------------------------------ */
+.main-bg {
+    background: #F3FCFF;
+}
+
+.page-container {
+    padding-block: 80px;
+}
+
+//ページタイトル背景
+.page-title-box {
+    position: relative;
+    margin-top: 80px;
+}
+
+@include responsive.pc {
+    .page-title-box {
+        margin-top: 60px;
+    }
+}
+
+.page-title-bg {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(135deg, #37BDF2 0%, #3790F2 70%, #375CF2 100%);
+    padding-block: 100px;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 40%;
+        left: 30%;
+        background: url("../img/particles.png") no-repeat right center / cover;
+        transform: rotate(315deg);
+    }
+}
+
+//ページタイトル
+.page-title {
+    font-family: "Zen Maru Gothic", sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: font.$fz64;
+    letter-spacing: font.$base-ls;
+    color: #fff;
+}
+
+@include responsive.pc {
+    .page-title {
+        font-size: font.$fz40;
+    }
+}
+
+.page-title-slideIn {
+    animation: slideIn-title 2s 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    opacity: 0;
+}
+
+@keyframes slideIn-title {
+    0% {
+        transform: translate(-100%, -50%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+//白背景のページコンテンツ
+.page-section {
+    background-color: color.$base-color;
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0 2px 4px #e1e1e1;
+}
+
+@include responsive.pc {
+    .page-section {
+        padding: 24px;
+    }
+}
+
+//ページセクションタイトルh3
+.page-sec-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: font.$font-zmg;
+    font-size: font.$fz24;
+    color: color.$base-font-color;
+    margin-bottom: 16px;
+
+    &::after {
+        content: "";
+        flex-grow: 1;
+        height: 3px;
+        background-color: color.$main-color;
+        border-radius: 8px;
+
+        // scaleXの基点をleftに設定 
+        transform: scaleX(0);
+        transform-origin: left;
+        opacity: 0;
+    }
+
+    &.is-inview::after {
+        animation: line-animation 1.2s ease 0.4s forwards;
+    }
+}
+
+@keyframes line-animation {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+.page-sec-sub {
+    font-family: font.$font-zmg;
+    display: block;
+    font-size: font.$fz18;
+    font-weight: bold;
+    letter-spacing: font.$base-ls;
+    color: color.$main-color;
+    margin-bottom: 4px;
+}
