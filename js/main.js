@@ -51,7 +51,7 @@ $(function () {
 //profileのballoonアニメション
 $(function () {
     $(window).scroll(function () {
-        $(".top-profile-img,.portfolio-name").each(function () {
+        $(".top-profile-img,.portfolio-name,.top-message-img").each(function () {
             let scroll = $(window).scrollTop();
             let target = $(this).offset().top;
             let windowHeight = $(window).height();
