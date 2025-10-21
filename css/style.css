@@ -778,7 +778,6 @@ PROFILE
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-direction: row-reverse;
   gap: 80px;
 }
 
@@ -790,9 +789,6 @@ PROFILE
 }
 .top-profile-left {
   width: 20%;
-}
-.top-profile-left img {
-  box-shadow: 0 4px 4px 0 rgba(217, 217, 217, 0.8);
 }
 
 @media screen and (max-width: 1024px) {
@@ -880,18 +876,7 @@ news
   font-size: 1.125rem;
   font-weight: 500;
 }
-.latest-news-text .blink {
-  animation: blinking 1.6s ease-in-out infinite alternate;
-}
 
-@keyframes blinking {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 @media screen and (max-width: 1024px) {
   #top-news .latest-news-text {
     text-align: left;
@@ -1151,18 +1136,6 @@ sns
   font-weight: 500;
 }
 
-.blink-sns {
-  animation: blinking 1s ease-in-out infinite alternate;
-}
-
-@keyframes blinking {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 .x-link {
   max-width: 480px;
   margin-inline: auto;

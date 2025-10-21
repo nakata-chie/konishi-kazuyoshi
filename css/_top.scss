@@ -183,8 +183,6 @@ PROFILE
     display: flex;
     align-items: center;
     justify-content: space-between;
-    //追記
-    flex-direction: row-reverse;
     gap: 80px;
 }
 
@@ -197,10 +195,6 @@ PROFILE
 
 .top-profile-left {
     width: 20%;
-
-    img {
-        box-shadow: 0 4px 4px 0 rgba($color: #D9D9D9, $alpha: 0.8);
-    }
 }
 
 @include responsive.pc {
@@ -296,20 +290,6 @@ news
     p {
         font-size: font.$fz18;
         font-weight: 500;
-    }
-
-    .blink {
-        animation: blinking 1.6s ease-in-out infinite alternate;
-    }
-}
-
-@keyframes blinking {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
     }
 }
 
@@ -594,21 +574,6 @@ sns
 
     .sns-text {
         font-weight: 500;
-    }
-}
-
-.blink-sns {
-    animation: blinking 1s ease-in-out infinite alternate;
-}
-
-
-@keyframes blinking {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
     }
 }
 
