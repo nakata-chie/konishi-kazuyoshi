@@ -718,6 +718,28 @@ mainVisual
 /* ------------------------------
 top-message
 ------------------------------ */
+.top-message-area {
+  display: flex;
+  align-items: center;
+}
+.top-message-area img {
+  width: 20%;
+}
+.top-message-area p {
+  width: 80%;
+}
+
+@media screen and (max-width: 1024px) {
+  .top-message-area {
+    gap: 8px;
+  }
+  .top-message-area img {
+    width: 30%;
+  }
+  .top-message-area p {
+    width: 70%;
+  }
+}
 .top-message {
   text-align: center;
   padding-block: 160px;
@@ -1558,27 +1580,4 @@ textarea {
   letter-spacing: 0.08em;
   color: #fff;
   padding: 8px 72px;
-}
-
-.sample {
-  display: flex;
-  align-items: center;
-}
-.sample img {
-  width: 20%;
-}
-.sample p {
-  width: 80%;
-}
-
-@media screen and (max-width: 1024px) {
-  .sample {
-    gap: 8px;
-  }
-  .sample img {
-    width: 30%;
-  }
-  .sample p {
-    width: 70%;
-  }
 }/*# sourceMappingURL=style.css.map */
