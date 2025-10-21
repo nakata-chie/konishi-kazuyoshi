@@ -48,12 +48,14 @@ header
 
     .ja {
         font-size: font.$fz14;
+        color: color.$base-font-color;
     }
 
     .en {
-        font-weight: font.$font-zmg;
+        font-family: font.$font-zmg;
         font-size: font.$fz10;
         letter-spacing: font.$base-ls;
+        color: color.$base-font-color;
     }
 }
 
@@ -91,6 +93,18 @@ header
                 color: color.$main-color;
                 transform: scaleX(1);
             }
+        }
+    }
+}
+
+@include responsive.pc {
+    .header-nav {
+        .ja {
+            color: color.$base-color;
+        }
+
+        .en {
+            color: color.$base-color;
         }
     }
 }
@@ -186,19 +200,6 @@ header
     visibility: visible;
 }
 
-.dummy {
-    width: 200px;
-    height: 48px;
-    background: rgba(55, 92, 242, 0.5);
-    border: 1px solid rgba(55, 92, 242, 0.2);
-    color: transparent;
-    pointer-events: none;
-}
-
-.dummy-end {
-    border-radius: 0 0 8px 0;
-}
-
 @include responsive.pc {
     .header-nav {
         gap: 8px;
@@ -244,7 +245,7 @@ header
                 border-radius: 0 0 0 0;
             }
 
-            &:nth-of-type(8) a {
+            &:nth-of-type(9) a {
                 border-radius: 0 0 8px 8px;
             }
 
@@ -263,10 +264,6 @@ header
                 }
             }
         }
-    }
-
-    .dummy {
-        display: none;
     }
 }
 
