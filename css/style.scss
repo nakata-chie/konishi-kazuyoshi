@@ -11,32 +11,3 @@
 @use "_single.scss";
 @use "_works.scss";
 @use "_contact.scss";
-
-
-.sample {
-    display: flex;
-    align-items: center;
-
-    img {
-        width: 20%;
-    }
-
-    p {
-        width: 80%;
-    }
-}
-
-@include responsive.pc {
-
-    .sample {
-        gap: 8px;
-
-        img {
-            width: 30%;
-        }
-
-        p {
-            width: 70%;
-        }
-    }
-}

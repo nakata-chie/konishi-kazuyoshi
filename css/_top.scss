@@ -118,6 +118,34 @@ mainVisual
 /* ------------------------------
 top-message
 ------------------------------ */
+.top-message-area {
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 20%;
+    }
+
+    p {
+        width: 80%;
+    }
+}
+
+@include responsive.pc {
+
+    .top-message-area {
+        gap: 8px;
+
+        img {
+            width: 30%;
+        }
+
+        p {
+            width: 70%;
+        }
+    }
+}
+
 .top-message {
     text-align: center;
     padding-block: 160px;
